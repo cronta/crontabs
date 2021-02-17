@@ -16,7 +16,8 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Generate random commit
-        run: echo $RANDOM >> README.md
+        run: |
+          echo $RANDOM >> README.md
 
       - name: Commit changes      
         uses: EndBug/add-and-commit@v6
