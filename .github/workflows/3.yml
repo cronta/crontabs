@@ -21,7 +21,7 @@ jobs:
           git clone https://github.com/cronta/3 .
           
       - name: Install Dependencies
-        run: pip install pymongo locationsharinglib geopy datetime pytz
+        run: pip install pymongo locationsharinglib geopy datetime pytz dnspython
       
       - name: Create something
         run: python script.py
