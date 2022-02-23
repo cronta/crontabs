@@ -1,0 +1,27 @@
+name: 3
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/2 * * * *'
+      
+      
+jobs:
+  executar:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Acess
+        uses: fusion-engineering/setup-git-credentials@v2
+        with:
+          credentials: ${{secrets.GIT_CREDENTIALS}}
+
+      - name: Clone repository
+        run: | 
+          git clone https://github.com/cronta/3 .
+          
+      - name: Install Dependencies
+        run: pip install pymongo locationsharinglib geopy datetime pytz
+      
+      - name: Create something
+        run: python script.py
