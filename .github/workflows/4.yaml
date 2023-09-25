@@ -1,0 +1,25 @@
+name: "4"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  executar:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Acess
+        uses: fusion-engineering/setup-git-credentials@v2
+        with:
+          credentials: ${{secrets.GIT_CREDENTIALS}}
+
+      - name: clone
+        run: git clone https://github.com/cronta/4 .
+
+      - name: Dependencies
+        run: pip install selenium
+
+      - name: Create something
+        run: python script.py
