@@ -21,5 +21,8 @@ jobs:
       - name: Dependencies
         run: pip install selenium
 
+      - name: setup
+        run: chmod 777 geckodriver
+      
       - name: Create something
         run: python script.py
